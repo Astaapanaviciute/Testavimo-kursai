@@ -1,0 +1,32 @@
+.virsutinis {
+    height: 70px;
+    width: 100%;
+    background-color: deeppink;
+    margin-top: 20px;
+}
+.desinys {
+    height: 150px;
+    width: 43%;
+    background-color: magenta;
+    margin-top: 20px;
+    display: inline-block;
+}
+.kairysis {
+    height: 150px;
+    width: 43%;
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 183px;
+    display: inline-block;
+}
+.mazesnis {
+    height: 65px;
+    width: 100%;
+    background-color: aqua;
+}
+.maz {
+    height: 65px;
+    width: 100%;
+    background-color: aqua;
+    margin-top: 20px;
+}

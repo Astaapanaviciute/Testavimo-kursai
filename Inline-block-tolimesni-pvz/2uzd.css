@@ -1,0 +1,21 @@
+.div1 {
+    height: 70px;
+    width: 100%;
+    background-color: aqua;
+}
+
+.div2 {
+    height: 120px;
+    width: 43%;
+    background-color: rgb(255, 0, 191);
+    margin-top: 20px;
+    display: inline-block;
+}
+.div3 {
+    height: 120px;
+    width: 43%;
+    background-color: rgb(255, 0, 191);
+    margin-top: 20px;
+    margin-left: 185px;
+    display: inline-block;
+}

@@ -1,0 +1,41 @@
+.container1 {
+    height: 600px;
+    width: 60%;
+    display: flex;
+    font-size: 20px;
+}
+.item {
+    height: 600px;
+    background-color: rgb(180, 189, 206);
+    flex-grow: 1;
+}
+.item1 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 5;
+}
+.item2 {
+    background-color: forestgreen;
+    flex-grow: 1;
+}
+.item3 {
+    background-color: bisque;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 4;
+}.item4 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 4;
+}
+.item5 {
+    background-color: rgb(184, 177, 190);
+    flex-grow: 1;
+}
+.item6  {
+    flex-grow: 3;
+}
+.item7 {
+    flex-grow: 1;
+    background-color: forestgreen;
+}

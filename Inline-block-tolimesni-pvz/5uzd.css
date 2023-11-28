@@ -1,0 +1,47 @@
+.pirmas {
+    height: 600px;
+    width: 100%;
+    background-color: aqua;
+}
+.antras {
+    height: 500px;
+    width: 40%;
+    background-color: greenyellow;
+    margin: 40px 20px 10px 70px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.trecias {
+    height: 100px;
+    width: 90%;
+    background-color: aqua;
+    margin: 30px;
+}
+.ketvirtas {
+   height: 120px;
+   width: 40%;
+   background-color: aqua;
+   margin: 10px 20px 20px 30px;
+   display: inline-block;
+}
+.penktas {
+    height: 120px;
+    width: 40%;
+    background-color: aqua;
+    margin: 20px 20px 20px 30px;
+    display: inline-block;
+}
+.sestas {
+    height: 120px;
+    width: 50%;
+    background-color: aqua;
+    margin: 20px 20px 20px 30px;
+    display: inline-block;
+}
+.septintas {
+    height: 120px;
+    width: 30%;
+    background-color: aqua;
+    margin: 20px 20px 20px 30px;
+    display: inline-block;
+}

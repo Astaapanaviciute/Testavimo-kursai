@@ -1,0 +1,26 @@
+.container {
+    width: 70%;
+}
+.item1 {
+    height: 100px;
+    width: 100%;
+    background-color: chartreuse;
+}
+.container1 {
+    display: flex;
+}
+.item2 {
+    height: 400px;
+    background-color: rgb(244, 247, 246);
+    flex-grow: 3;
+}
+.item3 {
+    height: 400px;
+    background-color: rgb(170, 189, 183);
+    flex-grow: 1;
+}
+.item4 {
+    height: 400px;
+    background-color: aquamarine;
+    flex-grow: 1;
+}

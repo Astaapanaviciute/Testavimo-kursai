@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    height: 420px;
+    width: 80%;
+    border: 1px solid rgb(56, 56, 138);
+    flex-direction: row;
+    align-items: center;
+}
+.item {
+    height: 400px;
+    width: 35%;
+    color: aliceblue;
+    font-size: 35px;
+    border: 5px solid aquamarine;
+    border-radius: 10px;
+    background-color: deepskyblue;
+}
+.item {
+    flex-grow: 1;
+}
+.item {
+    flex-grow: 1;
+}
+.item {
+    flex-grow: 1;
+}

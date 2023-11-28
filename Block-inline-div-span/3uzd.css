@@ -1,0 +1,11 @@
+.div1 {
+    background-color: whitesmoke;
+    border: 5px dotted black;
+    width: 60%;
+    font-size: 150%;
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    margin: 40px;
+}

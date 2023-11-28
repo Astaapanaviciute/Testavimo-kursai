@@ -1,0 +1,31 @@
+.container {
+    width: 80%;
+    height: 50px;
+    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 150px;
+}
+.item {
+    height: 40px;
+    background-color: rgb(54, 54, 105);
+    border-radius: 10px;
+    color: antiquewhite;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.item {
+    flex-grow: 1;
+}
+.item {
+    flex-grow: 1;
+}
+.item {
+    flex-grow: 1;
+}
+item {
+    flex-grow: 1;
+}

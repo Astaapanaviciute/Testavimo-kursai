@@ -1,0 +1,24 @@
+.container {
+    height: 600px;
+    width: 70%;
+    border: 1px solid dodgerblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item {
+    height: 570px;
+    width: 95%;
+    border-radius: 20px;
+    border: 5px solid rgb(69, 69, 148);
+    display: flex;
+    justify-content: center;
+}
+.item3 {
+    height: 40px;
+    width: 20%;
+    background-color: aqua;
+    color: aliceblue;
+    font-size: 30px;
+    align-self: center;
+}

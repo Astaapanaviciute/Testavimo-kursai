@@ -1,0 +1,32 @@
+.kairysis {
+    height: 300px;
+    width: 35%;
+    background-color: chartreuse;
+    display: inline-block;
+}
+.desinysis {
+    height: 300px;
+    width: 60%;
+    background-color: chartreuse;
+    margin-left: 50px;
+    display: inline-block;
+}
+.kairiojoViduje {
+    height: 55px;
+    width: 80%;
+    background-color: aqua;
+    margin: 35px;
+}
+.desiniojoVirsuje {
+    height: 90px;
+    width: 90%;
+    background-color: yellow;
+    margin: 40px 20px 20px 45px;
+}
+.paskutinis {
+    height: 90px;
+    width: 40%;
+    background-color: deeppink;
+    margin: 30px 15px 30px 50px;
+    display: inline-block;
+}

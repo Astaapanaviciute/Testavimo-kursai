@@ -1,0 +1,13 @@
+.div1 {
+    padding: 20px;
+    border-top: 1px solid greenyellow;
+    border-right: 3px dotted mediumaquamarine;
+    border-bottom: 2px dotted mediumspringgreen;
+    border-left: 4px solid yellowgreen;
+}
+#past1 {
+    background-color: darkmagenta;
+}
+#past2 {
+    background-color: deeppink;
+}

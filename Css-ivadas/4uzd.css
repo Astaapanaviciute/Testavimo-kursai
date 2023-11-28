@@ -1,0 +1,15 @@
+#past1 {
+    padding-left: 30px;
+    border: 2px solid green;
+}
+#past2 {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    border-bottom: 5px dotted red;
+}
+#past3 {
+    margin-top: 0px;
+    margin-left: 30px;
+    margin-right: 15px;
+    padding: 10px, 17px, 10px, 17px;
+}
