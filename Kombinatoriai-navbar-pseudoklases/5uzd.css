@@ -1,0 +1,23 @@
+.navbar {
+    display: flex;
+}
+.mygtukas {
+    height: 40px;
+    width: 20%;
+    background-color: darkslategrey;
+    border-radius: 5px;
+    margin: 10px 10px 10px 10px;
+}
+.mygtukas :hover {
+    background-color: rgb(15, 158, 98);
+}
+.mygtukas > a {
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
