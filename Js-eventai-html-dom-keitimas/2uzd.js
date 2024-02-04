@@ -37,7 +37,7 @@ window.onload = function() {
 
     sestasMygtukas.onclick = function() {
         let raide = prompt("Įveskite raidę: ");
-        let pastraipa = document.getElementById("pastraipa");
+        
         alert(kiekKartuKartojasiRaide(pastraipa, raide));
     }
 }
