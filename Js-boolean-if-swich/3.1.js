@@ -1,10 +1,10 @@
 window.onload = function() {
     let x = +prompt("Iveskite skaičių: ");
 
-    alert(teigiamasarNeigiamas(x));
+    alert(teigiamasArNeigiamas(x));
     alert(trejetoKartotinis(x));
 }
-function teigiamasarNeigiamas(x) {
+function teigiamasArNeigiamas(x) {
     if (x % 2 == 0) {
         return true;
     }
