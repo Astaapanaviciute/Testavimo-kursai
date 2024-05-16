@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class uzd5 {
+public class uzd5nn {
     public static void main(String[] args) {
         /*Parašykite funkciją, kuri suranda didžiausio masyvo elemento INDEKSĄ.*/
         double[] a = {4, 2.5, 18, -5, 17, -35, 4.0158, 3.89};
