@@ -3,23 +3,28 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class prisijungimasTest {
+public class calculatorTest {
     WebDriver driver;
     @BeforeEach
     public void setUp() {
-        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\Asta\\Desktop\\Testavimas\\chromedriver_win32\\chromedriver.exe");
         driver = new ChromeDriver();
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         driver.get("http://localhost:8080/prisijungti");
     }
     @AfterEach
     public void cleanUp() {
-        //driver.quit();
+        driver.quit();
     }
     @Test
     public void prisijungtiSuTeisingaisUser() throws InterruptedException{
@@ -80,14 +85,34 @@ public class prisijungimasTest {
 
     @Test
     public void sukurtiNaujaPaskyra() throws InterruptedException{
+        int randInt = 1 + (int)(Math.random() * ((9999 - 1) + 1));
         WebElement sukurtiButton = driver.findElement(By.linkText("Sukurti naują paskyrą"));
         sukurtiButton.click();
         WebElement username = driver.findElement(By.cssSelector("#username"));
-        username.sendKeys("danielius");
+        username.sendKeys("danielius" + randInt);
         WebElement password = driver.findElement(By.cssSelector("#password"));
         password.sendKeys("melyna");
         WebElement passwordConfirm = driver.findElement(By.cssSelector("#passwordConfirm"));
         passwordConfirm.sendKeys("melyna");
+        WebElement sukurtibutton = driver.findElement(By.cssSelector(".btn"));
+        sukurtibutton.click();
+        WebElement usernameError = driver.findElement(By.cssSelector("#username\\.errors"));
+        assertEquals("http://localhost:8080/registruoti", driver.getCurrentUrl());
+        assertEquals("Toks vartotojo vardas jau egzistuoja", usernameError.getText());
+        Thread.sleep(2000);
+
+    }
+
+    @Test
+    public void sukurtiNaujaPaskyraSuEsamuUser() throws InterruptedException{
+        WebElement sukurtiButton = driver.findElement(By.linkText("Sukurti naują paskyrą"));
+        sukurtiButton.click();
+        WebElement username = driver.findElement(By.cssSelector("#username"));
+        username.sendKeys("user");
+        WebElement password = driver.findElement(By.cssSelector("#password"));
+        password.sendKeys("user");
+        WebElement passwordConfirm = driver.findElement(By.cssSelector("#passwordConfirm"));
+        passwordConfirm.sendKeys("user");
         WebElement sukurtibutton = driver.findElement(By.cssSelector(".btn"));
         sukurtibutton.click();
         WebElement usernameError = driver.findElement(By.cssSelector("#username\\.errors"));
@@ -285,30 +310,19 @@ public class prisijungimasTest {
         prisijungtiSuTeisingaisUser();
         WebElement atliktosOperacijosButton = driver.findElement(By.cssSelector("ul.nav.navbar-nav.navbar-left > li > a"));
         atliktosOperacijosButton.click();
-        WebElement trintiButton = driver.findElement(By.cssSelector("tr:nth-child(5) > td:nth-child(5) > a:nth-child(2)"));
-        trintiButton.click();
-        assertEquals("http://localhost:8080/skaiciai", driver.getCurrentUrl());
+        List<WebElement> lentelesItem = driver.findElements(By.cssSelector("tr"));
+        WebElement paskutineEilute = lentelesItem.get(lentelesItem.size()-1);
+
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        int dydisPriesTrynima = lentelesItem.size();
+        WebElement trintiButton = paskutineEilute.findElement(By.cssSelector("td:nth-child(5) > a:nth-child(2)"));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(trintiButton)).click();
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+        lentelesItem = driver.findElements(By.cssSelector("tr"));
+        assertEquals(1, dydisPriesTrynima - lentelesItem.size());
+
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
