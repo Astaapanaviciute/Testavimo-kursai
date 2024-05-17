@@ -3,7 +3,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -96,13 +95,10 @@ public class calculatorTest {
         passwordConfirm.sendKeys("melyna");
         WebElement sukurtibutton = driver.findElement(By.cssSelector(".btn"));
         sukurtibutton.click();
-        WebElement usernameError = driver.findElement(By.cssSelector("#username\\.errors"));
-        assertEquals("http://localhost:8080/registruoti", driver.getCurrentUrl());
-        assertEquals("Toks vartotojo vardas jau egzistuoja", usernameError.getText());
+        assertEquals("http://localhost:8080/skaiciuotuvas", driver.getCurrentUrl());
         Thread.sleep(2000);
 
     }
-
     @Test
     public void sukurtiNaujaPaskyraSuEsamuUser() throws InterruptedException{
         WebElement sukurtiButton = driver.findElement(By.linkText("Sukurti naują paskyrą"));
@@ -171,6 +167,7 @@ public class calculatorTest {
         skaiciuotiButton.click();
         WebElement teisingasAts = driver.findElement(By.cssSelector("body > h4"));
         assertEquals("6 + 3 = 9", teisingasAts.getText());
+        assertTrue(teisingasAts.isDisplayed());
         Thread.sleep(2000);
     }
     @Test
@@ -209,6 +206,7 @@ public class calculatorTest {
         skaiciuotiButton.click();
         WebElement teisingasAts = driver.findElement(By.cssSelector("body > h4"));
         assertEquals("600 - 50 = 550", teisingasAts.getText());
+        assertTrue(teisingasAts.isDisplayed());
         Thread.sleep(2000);
     }
     @Test
@@ -227,6 +225,7 @@ public class calculatorTest {
         skaiciuotiButton.click();
         WebElement teisingasAts = driver.findElement(By.cssSelector("body > h4"));
         assertEquals("0 - 500000 = -500000", teisingasAts.getText());
+        assertTrue(teisingasAts.isDisplayed());
         Thread.sleep(2000);
     }
     @Test
@@ -245,6 +244,26 @@ public class calculatorTest {
         skaiciuotiButton.click();
         WebElement teisingasAts = driver.findElement(By.cssSelector("body > h4"));
         assertEquals("15 * 14 = 210", teisingasAts.getText());
+        assertTrue(teisingasAts.isDisplayed());
+        Thread.sleep(2000);
+    }
+    @Test
+    public void skaiciuotuvasDaugybaIs0Test() throws InterruptedException {
+        prisijungtiSuTeisingaisUser();
+        WebElement pirmasSkaicius = driver.findElement(By.cssSelector("#sk1"));
+        pirmasSkaicius.clear();
+        pirmasSkaicius.sendKeys("6");
+        WebElement antrasSkaicius = driver.findElement(By.cssSelector("#sk2"));
+        antrasSkaicius.clear();
+        antrasSkaicius.sendKeys("0");
+        WebElement operacijosZenklas = driver.findElement(By.cssSelector("#number > select"));
+        Select select = new Select(operacijosZenklas);
+        select.selectByIndex(2);
+        WebElement skaiciuotiButton = driver.findElement(By.cssSelector("#number > input[type=submit]:nth-child(10)"));
+        skaiciuotiButton.click();
+        WebElement teisingasAts = driver.findElement(By.cssSelector("body > h4"));
+        assertEquals("6 * 0 = 0", teisingasAts.getText());
+        assertTrue(teisingasAts.isDisplayed());
         Thread.sleep(2000);
     }
     @Test
@@ -263,6 +282,7 @@ public class calculatorTest {
         skaiciuotiButton.click();
         WebElement teisingasAts = driver.findElement(By.cssSelector("body > h4"));
         assertEquals("400 / 12 = 33", teisingasAts.getText());
+        assertTrue(teisingasAts.isDisplayed());
         Thread.sleep(2000);
     }
     @Test
@@ -301,11 +321,15 @@ public class calculatorTest {
         prisijungtiSuTeisingaisAdmin();
         WebElement atliktosOperacijosButton = driver.findElement(By.cssSelector("ul.nav.navbar-nav.navbar-left > li > a"));
         atliktosOperacijosButton.click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         WebElement rodytiButton = driver.findElement(By.cssSelector("tr:nth-child(2) > td:nth-child(5) > a:nth-child(3)"));
         rodytiButton.click();
         assertEquals("http://localhost:8080/rodyti?id=16", driver.getCurrentUrl());
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         WebElement atgalButton = driver.findElement(By.cssSelector("body > a"));
         atgalButton.click();
+        assertEquals("http://localhost:8080/skaiciai", driver.getCurrentUrl());
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         WebElement keistiButton = driver.findElement(By.cssSelector("tr:nth-child(3) > td:nth-child(5) > a:nth-child(1)"));
         keistiButton.click();
         assertEquals("http://localhost:8080/atnaujinti?id=17", driver.getCurrentUrl());
@@ -345,4 +369,25 @@ public class calculatorTest {
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
