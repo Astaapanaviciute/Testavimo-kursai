@@ -266,6 +266,26 @@ public class calculatorTest {
         Thread.sleep(2000);
     }
     @Test
+    public void skaiciuotuvasDalybaIs0Test() throws InterruptedException {
+        prisijungtiSuTeisingaisAdmin();
+        WebElement pirmasSkaicius = driver.findElement(By.cssSelector("#sk1"));
+        pirmasSkaicius.clear();
+        pirmasSkaicius.sendKeys("300");
+        WebElement antrasSkaicius = driver.findElement(By.cssSelector("#sk2"));
+        antrasSkaicius.clear();
+        antrasSkaicius.sendKeys("0");
+        WebElement operacijosZenklas = driver.findElement(By.cssSelector("#number > select"));
+        Select select = new Select(operacijosZenklas);
+        select.selectByIndex(3);
+        WebElement skaiciuotiButton = driver.findElement(By.cssSelector("#number > input[type=submit]:nth-child(10)"));
+        skaiciuotiButton.click();
+        WebElement errorPage = driver.findElement(By.cssSelector("body > h1"));
+        assertEquals("http://localhost:8080/skaiciuoti", driver.getCurrentUrl());
+        assertEquals(errorPage.getText(), "Whitelabel Error Page");
+        assertTrue(errorPage.isDisplayed());
+        Thread.sleep(2000);
+    }
+    @Test
     public void logOutTest() throws InterruptedException{
         prisijungtiSuTeisingaisUser();
         WebElement logout = driver.findElement(By.cssSelector("ul.nav.navbar-nav.navbar-right > a"));
